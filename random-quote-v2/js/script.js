@@ -57,10 +57,9 @@ function getRandomQuote () {
 function printQuote () {
 	var postedQuote = getRandomQuote(); 
 	var info;
-	var quoteHTML = postedQuote.quote;
-    var sourceHTML = postedQuote.source;
-    loadQuote.innerHTML = quoteHTML;
-    loadSource.innerHTML = sourceHTML;
+	info += '<p class ="quote">' + postedQuote.quote  + '</p>';
+  info += '<p class ="source">' + postedQuote.source  + '</p>';
+  document.getElementById('quote-box').innerHTML = info;
 }
 
 
