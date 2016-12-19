@@ -4,6 +4,7 @@ body {
   color: white;
   font-family: 'Playfair Display', serif;
 }
+
 #quote-box {
   position: absolute;
   top: 20%;
@@ -53,6 +54,10 @@ body {
   font-style: normal;
 }
 .year:before {
+  content: ", ";
+  font-style: normal;
+}
+.tag:before {
   content: ", ";
   font-style: normal;
 }
