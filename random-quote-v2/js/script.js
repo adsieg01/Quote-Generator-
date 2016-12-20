@@ -48,23 +48,31 @@ var quotes = [
 	}
 ];
 
+// variable to store used quotes 
+var usedQuotes = [];
+
 // Pulls a random quote to be displayed
-
-
 function getRandomQuote () {
+	
+while (quotes.length === 0) {
+	quotes = usedQuotes;
+	usedQuotes = []; 
+}
+
 	var randomNumber = Math.floor(Math.random() * quotes.length);
 	var selectedQuote = quotes[randomNumber];
-	return selectedQuote; 
 
-	// Display every quote once before resetting it
- 	//var usedQuote = [];
- 	//for ( var i= 0; i === quotes.length; i++){
- 	//if (usedQuote === 0){
- 		//quotes.slice(quotes[randomNumber],1);
- 		//return quote;
- 	//}
- //}
-	}
+// Makes sure every quote is used once
+	quotes.splice(randomNumber,1);
+	usedQuotes.push(selectedQuote);
+	console.log(selectedQuote);
+
+//returns selected quote 	
+	return selectedQuote; 	
+}
+
+
+
 
 // Displays Availible Properties of the choosen quote
 
@@ -104,9 +112,9 @@ function printQuote () {
 			document.getElementById('loadQuote').addEventListener("click",randomColor, false);
 
 	
-// Changes the Quote and random color every four seconds
-	var quoteChange = window.setInterval(printQuote, 4000);
-	var colorChange = window.setInterval(randomColor, 4000);
+// Changes the Quote and random color every thirty seconds
+	var quoteChange = window.setInterval(printQuote, 30000);
+	var colorChange = window.setInterval(randomColor, 30000);
 	
 
 
