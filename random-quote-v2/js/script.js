@@ -10,7 +10,6 @@ var quotes = [
 		quote: "I learned the value of hard work by working hard.", 
 		source: "Margaret Mead",
 		citation: "www.brainyquote.com",
-		year: "",
 		tag: "History",
 	}, 
 	{
@@ -18,7 +17,6 @@ var quotes = [
 		quote: "Nothing ever comes to one, that is worth having, except as a result of hard work.",
 		source: "Booker T. Washington",
 		citation: "www.brainyquote.com",
-		year: "",
 		tag: "History"
 	},
 	{
@@ -26,7 +24,6 @@ var quotes = [
 		quote: "I’m a greater believer in luck, and I find the harder I work the more I have of it",
 		source: "Thomas Jefferson",
 		citation: "www.quotezine.com",
-		year: "",
 		tag: "Government"
 	},
 	{
@@ -34,15 +31,12 @@ var quotes = [
 		quote: "Without labor nothing prospers.",
 		source: "Sophocles",
 		citation: "www.quotezine.com",
-		year: "",
 		tag: "History"
 	},
 	{
 		key: "Quote Five",
 		quote: "Dreams don’t work unless you do",
 		source: "John C. Maxwell",
-		citation:"",
-		year: "",
 		tag: "Inspirational"
 
 	}
@@ -54,7 +48,7 @@ var usedQuotes = [];
 // Pulls a random quote to be displayed
 function getRandomQuote () {
 	
-while (quotes.length === 0) {
+if (quotes.length === 0) {
 	quotes = usedQuotes;
 	usedQuotes = []; 
 }
@@ -81,7 +75,7 @@ function printQuote () {
 	var info =  "";
 
 	  info += '<p class ="quote">' + postedQuote.quote  + '</p>';
-	  info += '<p class ="source">' + postedQuote.source;
+	  info += '<p class ="source">' + postedQuote.source; '</p>';
 	  
 	  // additonal tag property 
 	  info += '<span class="tag">' + postedQuote.tag + '</span>';
@@ -89,10 +83,10 @@ function printQuote () {
       	
       	//posts citation and year only if applicable 
       	
-      	if (postedQuote.citation != ""){
+      	if (typeof postedQuote.citation != 'undefined'){
       	info += '<span class="citation">' + postedQuote.citation + '</span>';
  		 }
- 		 if(postedQuote.year != ""){
+ 		 if(typeof postedQuote.year != 'undefined'){
 	  	info += '<span class ="year">' + postedQuote.year  + '</span>';
 		 }
   		
@@ -102,14 +96,14 @@ function printQuote () {
 
 // Change random background color of the page
 
-	function randomColor() { 
-                var hash = '#'; 
-                var colors = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0','FF69B4']; 
-                hash += colors[Math.floor(Math.random() * colors.length)];
-                document.getElementById('bg').style.background = hash; 
-            }
+function randomColor() { 
+    var hash = '#'; 
+    var colors = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0','FF69B4']; 
+    hash += colors[Math.floor(Math.random() * colors.length)];
+    document.getElementById('bg').style.background = hash; 
+}
 
-			document.getElementById('loadQuote').addEventListener("click",randomColor, false);
+document.getElementById('loadQuote').addEventListener("click",randomColor, false);
 
 	
 // Changes the Quote and random color every thirty seconds
